@@ -1,4 +1,4 @@
-import { players, registerPlayer, Player } from "../../../utils/Players";
+import { players, registerPlayer, Player } from "../utils/players";
 
 export default function handler(req, res) {
     const { playerName } = req.query;
