@@ -1,0 +1,47 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 5% 1fr 1fr 1fr 1fr 1fr;
+    background-color: orange;
+
+    height: 100vh;
+}
+
+.nav {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    top: 0;
+    position: sticky;
+
+    background-color: purple;
+}
+
+.codearea {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 7;
+
+    background-color: aqua;
+}
+
+.problem {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+
+    background-color: indigo;
+}
+
+.playerstatus {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 7;
+
+    background-color: black;
+}

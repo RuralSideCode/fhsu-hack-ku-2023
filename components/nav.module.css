@@ -1,8 +1,8 @@
 
 .nav {
-    color: blue;
-    background-color: purple;
-    
-    height: 5rem;
-    width: 100%;
+    color: lime;
+}
+
+.navLink {
+    margin-block: auto;
 }
