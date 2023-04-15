@@ -5,7 +5,7 @@ export const codeNumberSlice = createSlice({
         count: 1,
     },
     reducers: {
-        setCount: (state, action) => {
+        setCount: (state) => {
             state.count += 1;
         }
     }
