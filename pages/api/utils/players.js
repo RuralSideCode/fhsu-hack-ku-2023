@@ -6,7 +6,7 @@ export class Player {
 
     points = 0;
 
-    connectionID = undefined;
+    socket = undefined;
 
     constructor(name) {
         this.uuid = uuidv4();

@@ -1,3 +1,7 @@
+const fs = require('fs');
+
+let problems = undefined;
+
 export class ProblemType {
     difficulty = undefined;
     tags = [];
@@ -18,8 +22,9 @@ export class ProblemType {
     }
 }
 
-function findProblem(problems, problemType) {
-    let filtered_result = problems;
+export function findProblem(problemType) {
+    // Cacheing of problems
+    let filtered_result = problems ?? initProblems;
 
     if (problemType.difficulty != undefined) {
         filtered_result = filtered_result.filter((p) => p.difficulty == problemType.difficulty);
@@ -42,4 +47,27 @@ function findProblem(problems, problemType) {
     if (problemType.points != undefined) {
         filtered_result = filtered_result.filter((p) => p.difficulty == problemType.points);
     }
+}
+
+function initProblems() {
+    fs.readFile("./pages/api/data/problems.json", 'utf-8', (err, data) => {
+        if (err) {
+            console.error("Unable to read problems.json");
+            console.error(`${err}`);
+            return;
+        }
+
+        const data_obj = JSON.parse(data);
+        if (data_obj == undefined) {
+            console.error("Unable to parse problems.json file to JS object");
+        } 
+
+        problems = data_obj["problems"];
+
+        if (problems == undefined) {
+            console.error("problems.json is not correctly formatted")
+        }
+
+        return problems;
+    });
 }
