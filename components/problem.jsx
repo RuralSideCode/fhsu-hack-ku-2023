@@ -7,7 +7,7 @@ const Problem = () => {
     const problemDesc = useSelector((state) => state.problem.desc);
 
     return (
-        <div class={styles.div}>
+        <div className={styles.div}>
             <h1>{problemName}</h1>
             <p>{problemDesc}</p>
         </div>

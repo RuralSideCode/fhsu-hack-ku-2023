@@ -5,8 +5,11 @@ export const codeNumberSlice = createSlice({
         count: 1,
     },
     reducers: {
-        setCount: (state) => {
+        increase: (state) => {
             state.count += 1;
+        },
+        decrease: (state) => {
+            state.count -= 1;
         }
     }
 });

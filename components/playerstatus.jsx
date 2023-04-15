@@ -8,7 +8,7 @@ const Playerstatus = () => {
     const playerConnectionId = useSelector((state) => state.connectionId);
 
     return (
-        <div class={styles.div}>
+        <div className={styles.div}>
             Player Status
         </div>
     );
