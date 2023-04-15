@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-
+import store from '/store.jsx' //may not b correct
+import { Provider } from 'react-redux'
 
 import Nav from '../components/nav'
 import Codearea from '../components/codearea'
