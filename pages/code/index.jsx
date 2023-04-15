@@ -15,14 +15,14 @@ const inter = Inter({ subsets: ['latin'] })
 const Home = () => {
   return (
     <>
-      <div class={styles.container}>
-        <div class={styles.codearea}>
+      <div className={styles.container}>
+        <div className={styles.codearea}>
           <Codearea/>
         </div>
-        <div class={styles.problem}>
+        <div className={styles.problem}>
           <Problem/>
         </div>
-        <div class={styles.playerstatus}>
+        <div className={styles.playerstatus}>
           <Playerstatus/>
         </div>
       </div>
