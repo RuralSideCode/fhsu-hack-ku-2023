@@ -16,9 +16,6 @@ const Home = () => {
   return (
     <>
       <div class={styles.container}>
-        <div class={styles.nav}>
-          <Nav/>
-        </div>
         <div class={styles.codearea}>
           <Codearea/>
         </div>
