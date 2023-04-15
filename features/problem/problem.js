@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-export const problemSlice = problemSlice({
+export const problemSlice = createSlice({
     name: 'problem',
     initialState: {
         name: 'Problem',
@@ -13,4 +13,6 @@ export const problemSlice = problemSlice({
             state.desc = action.payload;
         }
     }
-})
+});
+
+export default problemSlice.reducer;

@@ -8,11 +8,14 @@ import Codearea from '../../components/codearea'
 import Playerstatus from '../../components/playerstatus'
 import Problem from '../../components/problem'
 
-import styles from "./index.module.css"
+import styles from "./index.module.css";
+
+import {useSelector} from "react-redux";
 
 const inter = Inter({ subsets: ['latin'] })
 
 const Home = () => {
+
   return (
     <>
       <div class={styles.container}>
