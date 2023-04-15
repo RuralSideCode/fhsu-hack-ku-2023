@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ['latin'] })
 const Home = () => {
   return (
     <>
-      <Nav/>
     </>
   )
 }
