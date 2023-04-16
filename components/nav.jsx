@@ -5,7 +5,7 @@ const Nav = () => {
 
     return (
         <nav className={styles.nav}>
-                <Link href="#" class={styles.navLink}>Nav Bar</Link>
+            <Link href="#" class={styles.navLink}>Nav Bar</Link>
         </nav>
     );
 }

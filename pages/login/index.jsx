@@ -31,14 +31,16 @@ const LoginPage = ({}) => {
     }
 
     return(
-        <div>
-            <h2>Login</h2>
-            <form className={styles.loginFrom} onSubmit={attemptLogin}>
-                <label htmlFor="name">Name: </label>
-                <input type="text" name="name" ref={playerName}></input>
+        <div className={styles.outdiv}>
+            <div className={styles.div}>
+                <h2 className={styles.h2}>Login</h2>
+                <form className={styles.loginFrom} onSubmit={attemptLogin}>
+                    <label htmlFor="name">Name: </label>
+                    <input type="text" name="name" ref={playerName}></input>
 
-                <button type="submit" className={styles.submitButton}>Start Competing</button>
-            </form>
+                    <button type="submit" className={styles.submitButton}>Start Competing</button>
+                </form>
+            </div>
         </div>
     );
 }
