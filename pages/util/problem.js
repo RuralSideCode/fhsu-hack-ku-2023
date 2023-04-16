@@ -1,4 +1,4 @@
-export let problem = undefined;
+let problem = undefined;
 
 export function setProblem(p) {
     problem = p;

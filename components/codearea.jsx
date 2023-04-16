@@ -1,30 +1,50 @@
 import styles from "./codearea.module.css"
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { player, getGroupUUID } from "../pages/util/player";
+import { getProblem } from "../pages/util/problem";
 
-const Codearea = () => {
+import { problems } from "../pages/api/data/problems";
+
+const Codearea = (props) => {
     const [rawCode, setRawCode] = useState("function solution(params) { }");
     const consoleOutput = useState("");
 
-    const submitCode = async () => {
-        const response = await fetch(`/api/submit/${getGroupUUID()}/${player.uuid}`,
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    code: rawCode
-                })
-            }
-        );
+    const problem = props.problem;
 
-        if (!response.ok) {
-            console.error("Could not submit code");
+    const submitCode = async () => {
+        let inputs = "";
+
+        for(let i of problem.inputs) {
+            inputs.concat("[");
+            for(let j of i) {
+                inputs.concat(i + ",");
+            }
+            inputs = inputs.substring(0, inputs.length - 1);
+            inputs.concat("]");
         }
 
-        console.log(response.body);
-        const response_json = await response.json();
-        //console.log(response_json.result);
+        console.log(problem);
+        const program = `
+            const inputs = ${"[[" + problem.inputs + "]]"};
+            const outputs = ${"[" + problem.outputs + "]"};
+
+            ${rawCode}
+
+            let pass = true;
+            for (let i = 0; i < inputs.length; i++) {
+                if(solution(inputs[i]) != outputs[i]) {
+                    pass = false;
+                }
+            }
+
+            console.log(pass ? "Passes!" : "Fails");
+        `;
+        console.log(program);
+
+        const result = new Function(program)();
+        console.log(result);
     }
 
     const onChange = (e) => {

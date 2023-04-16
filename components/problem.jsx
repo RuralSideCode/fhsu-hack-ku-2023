@@ -3,8 +3,8 @@ import styles from "./problem.module.css"
 import { getProblem } from "../pages/util/problem";
 import { useState } from "react";
 
-const Problem = () => {
-    const [problem, setProblem] = useState(getProblem());
+const Problem = (props) => {
+    const [problem, setProblem] = useState(props.problem);
 
     return (
         <div className={styles.div}>

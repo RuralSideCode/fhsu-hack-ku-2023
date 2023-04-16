@@ -23,11 +23,11 @@ const Groups = () => {
             let p = undefined;
             let polls = 0;
             do {
-                await new Promise(r => setTimeout(r, 100));
+                await new Promise(r => setTimeout(r, 25));
                 p = await pollGroup(getGroupUUID())
                 polls++;
             }
-            while(p == undefined && polls < 100);
+            while(p == undefined && polls < 25);
 
             if (polls == 100) {
                 router.push("/login");
