@@ -1,19 +1,10 @@
-import { Server } from "socket.io";
+import { matchPlayerToGroup } from "../../utils/groups";
+import { players } from "../../utils/players";
 
 const SocketHandler = (req, res) => {
-    if(res.socket.server.io) {
-        console.log("Server already running");
-    } else {
-        console.log("Initializing server");
-        const io = new Server(res.socket.server);
+    const group = matchPlayerToGroup(players.find((p) => p.getUUID() == req.query.uuid), undefined);
 
-        const p = players.find((p) => p.getUUID() == req.query.uuid);
-
-        io.emit("hi", "hi");
-        res.socket.server.io = io;
-    }
-
-    res.end();
+    res.end(JSON.stringify({group: group.uuid}));
 }
 
 export default SocketHandler;

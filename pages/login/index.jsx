@@ -3,6 +3,8 @@ import styles from "./login.module.css";
 
 import { useRef } from "react";
 
+import {player} from "../util/player";
+
 const LoginPage = ({}) => {
     const playerName = useRef("");
     const router = useRouter();
@@ -24,8 +26,13 @@ const LoginPage = ({}) => {
             return;
         }
 
-        console.log(response_json); 
-        // TODO: update redux
+        if(response_json.error != undefined) {
+            alert("That name is already taken!");
+            return;
+        } 
+
+        player.name = playerName;
+        player.uuid = response_json.uuid;
 
         router.push("/groups");
     }

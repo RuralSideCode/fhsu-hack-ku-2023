@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 export const playerSlice = createSlice({
     name: 'player',
     initialState: {
-        uuid: undefined,
+        uuid: "",
         name: '',
         points: 0,
-        connectionId: undefined,
+        socket: "",
     },
     reducers: {
         setUUID: (state, action) => {
@@ -17,10 +17,12 @@ export const playerSlice = createSlice({
         setPoints: (state, action) => {
             state.points = action.payload;
         },
-        setConnectionId: (state, action) => {
+        setSocket: (state, action) => {
             state.connectionId = action.payload;
         }
     }
 });
+
+export const {setUUID, setName, setPoints, setSocket} = playerSlice.actions;
 
 export default playerSlice.reducer;

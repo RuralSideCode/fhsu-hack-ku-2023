@@ -1,4 +1,3 @@
-import { Socket } from "socket.io";
 import { ProblemType, findProblem } from "./ProblemsSelections";
 
 import {v4 as uuidv4} from "uuid";
@@ -9,23 +8,21 @@ export class Group {
     problemType = new ProblemType();
     results = []; 
     inSession = false;
-    room = undefined;
+    uuid = undefined;
 
-    constructor(problem, problemType) {
+    constructor(problem) {
         this.problem = problem;
-        this.problemType = problemType;
-        this.room = uuidv4();
+        //this.problemType = problemType;
+        this.uuid = uuidv4();
     }
 };
 
 export const groups = [];
 
 export function matchPlayerToGroup(player, problemType) {
-    let matchingGroup = undefined;
-
     // Try to find existing group
     for (let g of groups) {
-        if (!g.inSession && problemType.matches(g.problemType)) {
+        if (!g.inSession) {
             g.players.push(player);
             // TODO: Notify user that they have joined a group
             console.log("Old group found!");
@@ -45,25 +42,22 @@ export function matchPlayerToGroup(player, problemType) {
     ng.players.push(player);
 
     groups.push(ng);
-    console.log("New Group created!");
 
     // Start the match in 30 seconds
     setTimeout(() => {
         startMatch(ng);
-    }, 30000);
+    }, 5000);
 
     return ng;
 }
 
-async function startMatch(group) {
-   // Ignore if the group is in session
-   if (group.inSession) {
-    return;
-   } 
+export async function startMatch(group) {
+    console.log(`Starting Group ${group.uuid}`)
+    // Ignore if the group is in session
+    if (group.inSession) {
+        return;
+    } 
 
    group.inSession = true;
-
-   const s = new Socket();
-   s.to(group.room).emit("start-code");
 }
 
