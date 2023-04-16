@@ -29,6 +29,11 @@ const Groups = () => {
             }
             while(p == undefined && polls < 100);
 
+            if (polls == 100) {
+                router.push("/login");
+                return;
+            }
+
             setProblem(p);
 
             router.push("/code");
