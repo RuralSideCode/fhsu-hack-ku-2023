@@ -1,6 +1,9 @@
 
 .nav {
-    color: lime;
+    display: block;
+    color: white;
+    background-color: #112D32;
+    padding: 1% 1% 1% 1%;
 }
 
 .navLink {
