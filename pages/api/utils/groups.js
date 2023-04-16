@@ -19,13 +19,22 @@ export class Group {
 
 export const groups = [];
 
+export function getGroup(uuid) {
+    for (let g of groups) {
+        if (g.uuid == uuid) {
+            return g;
+        }
+    }
+
+    return undefined;
+}
+
 export function matchPlayerToGroup(player, problemType) {
     // Try to find existing group
     for (let g of groups) {
         if (!g.inSession) {
             g.players.push(player);
             // TODO: Notify user that they have joined a group
-            console.log("Old group found!");
 
             // If there are enough players, then start the match
             if (g.players.length > 3) {
@@ -46,7 +55,7 @@ export function matchPlayerToGroup(player, problemType) {
     // Start the match in 30 seconds
     setTimeout(() => {
         startMatch(ng);
-    }, 5000);
+    }, 1000);
 
     return ng;
 }

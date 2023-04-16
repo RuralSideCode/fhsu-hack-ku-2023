@@ -3,6 +3,7 @@ import { player } from "../util/player";
 
 import { getProblem, setProblem } from "../util/problem";
 import { useRouter } from "next/router";
+import { setGroupUUID, getGroupUUID } from "../util/player";
 
 const Groups = () => {
     const router = useRouter();
@@ -16,12 +17,12 @@ const Groups = () => {
             }
 
             const response_json = await response.json();
-            const uuid = response_json.group;
+            setGroupUUID(response_json.group);
             // Poll
             let p = undefined;
             do {
-                await new Promise(r => setTimeout(r, 5000));
-                p = await pollGroup(uuid)
+                await new Promise(r => setTimeout(r, 100));
+                p = await pollGroup(getGroupUUID())
             }
             while(p == undefined);
 

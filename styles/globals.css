@@ -88,6 +88,13 @@ body {
 body {
   color: rbg(--foreground-rgb);
   background-color: rgb(30, 30, 30);
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {

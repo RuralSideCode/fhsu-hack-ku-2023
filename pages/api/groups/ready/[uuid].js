@@ -1,4 +1,4 @@
-import { groups } from "../../utils/groups";
+import { groups, getGroup } from "../../utils/groups";
 
 export default function handler(req, res) {
     const uuid = req.query.uuid;
@@ -9,10 +9,9 @@ export default function handler(req, res) {
         return;
     }
 
-    const group = groups.find((g) => g.uuid == uuid);
+    const group = getGroup(uuid);
 
     if (group == undefined) {
-        console.log("Group was not found");
         res.end(JSON.stringify({error: "Group not found"}));
         return;
     }

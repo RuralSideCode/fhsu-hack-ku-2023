@@ -4,7 +4,7 @@
     grid-template-rows: 5% 1fr 1fr 1fr 1fr 1fr;
     background-color: orange;
 
-    height: 100vh;
+    height: 95%;
     overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-end: 4;
 
     padding-left: .5rem;
     padding-top: .5rem;
@@ -35,7 +35,7 @@
 .playerstatus {
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 5;
+    grid-row-start: 4;
     grid-row-end: 7;
 
     padding-left: .5rem;
@@ -43,4 +43,6 @@
     border-right: .3rem solid rgb(240, 240, 240);
 
     background-color: #254E58;
+
+    overflow-y: scroll;
 }

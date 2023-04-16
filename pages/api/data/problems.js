@@ -1,24 +1,18 @@
 export const problems = [
     {
         uuid: "some uuid",
-        name: "name",
-        description: "desc",
-        tags: ["name", "other tage"],
-        input_examples: "",
-        output_examples: "",
+        name: "Sum of 2 numbers",
+        description: "Your object is to design a program that can add two numbers together",
+        tags: ["math", "javascript"],
+        inputs: [[0,1],[2,2][3,4]],
+        outputs: [1,4,7],
         solution: "",
-        points: "",
+        points: 10,
         difficulty: 0,
         examples: [
-            {
-                example_1: ""
-            },
-            {
-                example_2: ""
-            },
-            {
-                example_3: ""
-            }
+            "Input: [0,1] Output: 1",
+            "Input [10, 20] Output: 30",
+            "Input [1, -1] Output: 0",
         ]
     }
 ]
