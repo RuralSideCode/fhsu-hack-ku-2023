@@ -18,6 +18,7 @@ const Groups = () => {
 
             const response_json = await response.json();
             setGroupUUID(response_json.group);
+
             // Poll
             let p = undefined;
             let polls = 0;
