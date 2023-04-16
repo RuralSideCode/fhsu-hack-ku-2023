@@ -5,7 +5,7 @@ const Nav = () => {
 
     return (
         <nav className={styles.nav}>
-            <Link href="#" className={styles.navLink}>Nav Bar</Link>
+            <Link href="#" class={styles.navLink}>BETTER LEETCODE</Link>
         </nav>
     );
 }

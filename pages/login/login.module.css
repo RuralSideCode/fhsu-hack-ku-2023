@@ -10,29 +10,42 @@
 }
 
 .outdiv {
+    display: grid;
+    grid-template-columns: 1fr 40%;
+
+    font-size: 1.1em;
+
     background-color: #041b1f;
-    height: 100vh;
+    height: 92.5vh;
     overflow: hidden;
 }
 
 .div {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
     background-color: #254E58;
     color: rgb(230, 230, 230);
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    margin: 10% 10% 10% 10%;
     
     padding: 10% 10% 10% 10%;
 
     border: solid #4F4A41;
-    border-radius: 60px;
 
     overflow: hidden;
 }
 
 .h2 {
     padding-right: 5%;
+}
+
+#h2 {
+    padding: 3% 5% 5% 3%;
+}
+
+.p {
+    padding: 0% 5% 5% 3%;
 }
