@@ -3,14 +3,11 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 
 
-import Nav from '../../components/nav'
 import Codearea from '../../components/codearea'
 import Playerstatus from '../../components/playerstatus'
 import Problem from '../../components/problem'
 
 import styles from "./index.module.css";
-
-import {useSelector} from "react-redux";
 
 const inter = Inter({ subsets: ['latin'] })
 

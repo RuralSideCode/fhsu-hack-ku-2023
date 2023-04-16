@@ -5,7 +5,7 @@ const Codearea = () => {
     const codeNumber = useSelector((state) => state.codenumber.count);
 
     return (
-        <div class={styles.div}>
+        <div className={styles.div}>
             Code Area
         </div>
     );
