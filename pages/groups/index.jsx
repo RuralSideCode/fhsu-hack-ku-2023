@@ -20,11 +20,13 @@ const Groups = () => {
             setGroupUUID(response_json.group);
             // Poll
             let p = undefined;
+            let polls = 0;
             do {
                 await new Promise(r => setTimeout(r, 100));
                 p = await pollGroup(getGroupUUID())
+                polls++;
             }
-            while(p == undefined);
+            while(p == undefined && polls < 100);
 
             setProblem(p);
 
